@@ -1,4 +1,5 @@
-﻿using EFCore_Store_Procedured_1.Entities;
+﻿using EFCore_Store_Procedured_1.DTOs;
+using EFCore_Store_Procedured_1.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFCore_Store_Procedured_1.DAL
@@ -32,9 +33,12 @@ namespace EFCore_Store_Procedured_1.DAL
                 builder.Property(x => x.Description).HasColumnName("Description").HasMaxLength(50);
                 builder.ToTable("Category");
             });
+
+            modelBuilder.Entity<ProductListDto>().HasNoKey();
         }
         public DbSet<Product>  Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductListDto> ProductListDtos { get; set; }
 
     }
 }

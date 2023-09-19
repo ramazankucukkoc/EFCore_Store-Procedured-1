@@ -11,7 +11,7 @@ namespace EFCore_Store_Procedured_1.Mappings
             CreateMap<Product, ProductListDto>()
                 .ForMember(x => x.CategoryName,dest=>dest.MapFrom(p=>p.Category.Name))
                 .ReverseMap();
-            
+            CreateMap<Product, CreatedProductDto>().ReverseMap();
         }
     }
 }
